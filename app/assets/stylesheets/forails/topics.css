@@ -1,0 +1,17 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.forails-topic {
+  border: 1px #DADADA solid;
+  padding: 5px;
+}
+
+.forails-group .forails-topic {
+  border-width: 0px 1px 1px;
+}
+
+.forails-topic-info {
+  font-size: 11px;
+}

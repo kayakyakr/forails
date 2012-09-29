@@ -1,0 +1,13 @@
+<%= form_for :search, method: 'GET' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Search" %>
+<% end %>
+
+<ul>
+<% @users.each do |user| %>
+  <li><%= (user.respond_to? :name) ? user.name : user.email %>
+    <%= link_to "Edit", admin_users_path(id: user.id) %>
+  </li>
+<% end %>
+</ul>

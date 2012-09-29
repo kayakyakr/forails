@@ -1,0 +1,16 @@
+  <title><%= @topic.name %></title>
+  <%= stylesheet_link_tag    "forails/application", 'forails/topics', 'forails/comments', :media => "all" %>
+  <%= javascript_include_tag "forails/application", 'forails/topics', 'forails/comments' %>
+
+  <%= render 'forails/forums/location' %>
+
+  <div class="forails-comment-wrapper">
+  <% @topic.comments.each do |comment| %>
+      <%= render 'forails/comments/comment', comment: comment %>
+  <% end %>
+  </div>
+  
+  <%= link_to 'Reply', new_topic_comment_path(@topic) %>
+
+
+  <%= render 'forails/forums/location' %>

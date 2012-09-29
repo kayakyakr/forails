@@ -1,0 +1,8 @@
+<div class="forails-topic">
+  <div class="forails-row-tools">
+    <span class="forails-topic-info">Replies: <%= topic.comments.length %> - Posted: <%= l topic.created_at, format: :short %></span>
+  </div>
+  <span class="forails-topic-name">
+    <%= link_to topic.name, topic %>
+  </span> 
+</div>

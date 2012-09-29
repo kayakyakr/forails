@@ -1,0 +1,11 @@
+  <title>Forum Index</title>
+  <%= stylesheet_link_tag    "forails/application", "forails/forums", :media => "all" %>
+  <%= javascript_include_tag "forails/application" %>
+
+  
+<% @forums.each do |forum| %>
+  <%= render 'forum', forum: forum%>
+<% end %>
+
+
+<%= link_to 'New Forum', new_admin_forum_path if can? :create, Forails::Forum %>

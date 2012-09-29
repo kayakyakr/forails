@@ -1,0 +1,20 @@
+<div class="forails-comment">
+  <div class="forails-comment-user">
+    <div><%= comment.user.name %></div>
+  </div>
+  <div class="forails-comment-body">
+    <div><%= comment.content %></div>
+    
+  </div>
+</div>
+<div class="forails-comment-tools">
+  <div class="forails-comment-user">
+    <span>Posted <%= l comment.created_at, :format => :short %></span>
+  </div>
+  <div class="forails-comment-body">
+    <span>
+      <%= (link_to 'Edit', edit_topic_comment_path(@topic, comment)) if comment.user == current_user %> | 
+      <%= (link_to 'Delete', topic_comment_path(@topic, comment), method: :delete, data: { confirm: 'Are you sure?' }) if comment.user == current_user %>
+    </span>
+  </div>
+</div>

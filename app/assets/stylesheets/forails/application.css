@@ -1,0 +1,47 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+.forails-group{
+  margin: 5px 0;
+}
+
+.forails-group-header{
+  border: 1px gray solid;
+  background-color: #A99089;  
+}
+
+.forails-group-header h4{
+  margin: 15px;
+}
+
+.forails-group-header h6{
+  margin: 1px 15px;
+}
+
+.forails-forum-location{
+  font-size: 12px;
+  font-family: sans-serif;
+}
+
+.forails-minor-link{
+  font-size: 12px;
+}
+
+.forails-major-link{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.forails-row-tools{
+  float: right;
+}

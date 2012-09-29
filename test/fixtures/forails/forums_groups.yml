@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  forum_id: 1
+  group_id: 1
+  can_moderate: false
+  can_admin: false
+
+two:
+  forum_id: 1
+  group_id: 1
+  can_moderate: false
+  can_admin: false

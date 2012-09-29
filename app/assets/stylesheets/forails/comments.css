@@ -1,0 +1,26 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.forails-comment-wrapper {
+  display: table;
+  border-collapse: collapse;
+}
+
+.forails-comment, .forails-comment-tools {
+  display: table-row;
+  border: 1px solid #888;
+}
+
+.forails-comment {
+  border: 0 0 1px solid #DADADA;
+}
+
+.forails-comment-tools {
+  border: 1px 0 0 solid #DADADA;
+}
+
+.forails-comment-user, .forails-comment-body {
+  display: table-cell;
+}

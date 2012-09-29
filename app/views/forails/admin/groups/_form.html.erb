@@ -1,0 +1,32 @@
+<%= form_for(@group, url: @group.persisted? ? admin_group_path(@group) : admin_groups_path) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <%= f.fields_for :forums_groups do |ff| %>
+    <%= ff.hidden_field :forum_id %>
+    <%= ff.object.forum.nil? ? "All Forums" : ff.object.forum.name %>
+    <%= ff.radio_button :permission, :can_view %> <%= ff.label :can_view %>
+    <%= ff.radio_button :permission, :can_moderate %> <%= ff.label :can_moderate %>
+    <%= ff.radio_button :permission, :can_admin %> <%= ff.label :can_admin %>
+    <%= ff.radio_button :permission, :inherited %> <%= ff.label :inherited %>
+    <%= ff.radio_button :permission, :none %> <%= ff.label :none %><br/>
+  <% end %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

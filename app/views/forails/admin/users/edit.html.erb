@@ -1,0 +1,21 @@
+
+<p>
+  User's Groups:<br />
+  <ul>
+    <% @user.groups.each do |group| %>
+      <li><%= group.name %>
+        <%= link_to "Remove", admin_users_path(id: @user.id, group_id: group.id, act:'remove'), method: :put %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+<p>
+  Other Groups:<br/>
+  <ul>
+    <% @other_groups.each do |group| %>
+      <li><%= group.name %>
+        <%= link_to "Add", admin_users_path(id: @user.id, group_id: group.id, act:'add'), method: :put %>
+      </li>
+    <% end %>
+  </ul>
+</p>

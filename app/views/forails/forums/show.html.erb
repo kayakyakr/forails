@@ -1,0 +1,27 @@
+  <title><%= @forum.name %></title>
+  <%= stylesheet_link_tag    "forails/application", 'forails/forums', 'forails/topics', :media => "all" %>
+  <%= javascript_include_tag "forails/application", 'forails/forums', 'forails/topics' %>
+
+  <%= render 'forails/forums/location' %>
+  
+  <div class="forails-group">
+    <div class="forails-group-header">
+      <h6>sub-forums</h6>
+    </div>
+    <% @forum.children.each do |child| %>
+      <%= render 'forum', forum: child if can? :read, child %>
+    <% end %>
+  </div>
+  
+  <div class="forails-group">
+    <div class="forails-group-header">
+      <h6>topics</h6>
+    </div>
+    <% @forum.topics.each do |topic| %>
+      <%= render 'forails/topics/topic', topic: topic %>
+    <% end %>
+  </div>
+  
+  <%= link_to 'New Topic', new_forum_topic_path(@forum) unless @forum.is_category? %>
+
+  <%= render 'forails/forums/location' %>

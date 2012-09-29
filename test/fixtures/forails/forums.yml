@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  parent_forum_id: 1
+  sequence: 1
+  description: MyString
+
+two:
+  name: MyString
+  parent_forum_id: 1
+  sequence: 1
+  description: MyString
