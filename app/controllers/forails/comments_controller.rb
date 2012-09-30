@@ -6,6 +6,10 @@ module Forails
     
     def new
       @comment = Comment.new(topic_id: params[:topic_id])
+      if params[:comment_id]
+        quoted = Comment.find(params[:comment_id])
+        @comment.content = quoted.quote if quoted && can?(:read, quoted)
+      end
       authorize! :create, @comment
       respond_with @comment
     end
@@ -13,6 +17,12 @@ module Forails
     def edit
       @comment = Comment.find(params[:id])
       authorize! :update, @comment
+      
+      if @comment.topic.comments.first == @comment
+        redirect_to edit_topic_path(@comment.topic)
+        return;
+      end
+      
       respond_with @comment
     end
   

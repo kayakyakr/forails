@@ -4,13 +4,12 @@
 
   <%= render 'forails/forums/location' %>
 
-  <div class="forails-comment-wrapper">
+  <%= render 'forails/topics/tools', topic: @topic %>
+  
   <% @topic.comments.each do |comment| %>
       <%= render 'forails/comments/comment', comment: comment %>
   <% end %>
-  </div>
-  
-  <%= link_to 'Reply', new_topic_comment_path(@topic) %>
 
+  <%= render 'forails/topics/tools', topic: @topic %>
 
   <%= render 'forails/forums/location' %>

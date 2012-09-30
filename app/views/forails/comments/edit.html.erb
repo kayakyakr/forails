@@ -1,5 +1,30 @@
-<h1>Editing comment</h1>
+  <title>Edit Comment in: <%= @comment.topic.name %></title>
+  <%= stylesheet_link_tag    "forails/application", "forails/comments", :media => "all" %>
+  <%= javascript_include_tag "forails/application", "forails/comments" %>
 
-<%= render 'form' %>
+  <%= render 'forails/forums/location' %>
+  
+<h3>Editing Comment in: <%= @comment.topic.name %></h3>
 
-<%= link_to 'Back', topic_path(@comment.topic) %>
+<%= form_for [@comment.topic, @comment] do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render 'form', comment: @comment%>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+  <%= render 'forails/forums/location' %>

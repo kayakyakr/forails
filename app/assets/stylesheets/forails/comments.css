@@ -3,24 +3,56 @@
   They will automatically be included in application.css.
 */
 
-.forails-comment-wrapper {
-  display: table;
-  border-collapse: collapse;
-}
-
-.forails-comment, .forails-comment-tools {
-  display: table-row;
-  border: 1px solid #888;
-}
-
 .forails-comment {
-  border: 0 0 1px solid #DADADA;
+  width: 100%;
+  display:table;
+  margin: 1px 0px;
+  border: 1px solid #555;
+}
+
+.forails-comment-top-row, .forails-comment-second-row {
+  display: table-row;
+}
+
+.forails-comment-user, .forails-comment-body, .forails-comment-info, .forails-comment-tools {
+  display: table-cell;
+  border: 0px solid #bbb;
+}
+
+.forails-comment-user {
+  width: 300px;
+  padding: 2px;
+  border-width: 0px 1px 1px 0px;
+}
+
+.forails-comment-body {
+  padding: 2px 5px;
+  border-width: 0px 0px 1px 0px;
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+.forails-comment-info {
+  width: 300px;
+  font-size: 10px;
+  font-family: sans-serif;
+  padding: 2px;
+  border-width: 0px 1px 0px 0px;
 }
 
 .forails-comment-tools {
-  border: 1px 0 0 solid #DADADA;
+  text-align: right;
+  font-size: 12px;
+  font-family: sans-serif;
+  padding: 2px;
 }
 
-.forails-comment-user, .forails-comment-body {
-  display: table-cell;
+.forails-comment-body p {
+  margin: 0px 0px 10px;
+}
+
+.forails-comment-body-edit {
+  font-size: 10px;
+  font-family: sans-serif;
+  font-style: italic;
 }

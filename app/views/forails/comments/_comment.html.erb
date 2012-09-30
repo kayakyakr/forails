@@ -1,20 +1,22 @@
 <div class="forails-comment">
-  <div class="forails-comment-user">
-    <div><%= comment.user.name %></div>
+  <div class="forails-comment-top-row">
+    <div class="forails-comment-user">
+      <%= render 'forails/comments/user', user: comment.user %>
+    </div>
+    <div class="forails-comment-body">
+      <%= render 'forails/comments/body', comment: comment %>
+    </div>
   </div>
-  <div class="forails-comment-body">
-    <div><%= comment.content %></div>
-    
-  </div>
-</div>
-<div class="forails-comment-tools">
-  <div class="forails-comment-user">
-    <span>Posted <%= l comment.created_at, :format => :short %></span>
-  </div>
-  <div class="forails-comment-body">
-    <span>
-      <%= (link_to 'Edit', edit_topic_comment_path(@topic, comment)) if comment.user == current_user %> | 
-      <%= (link_to 'Delete', topic_comment_path(@topic, comment), method: :delete, data: { confirm: 'Are you sure?' }) if comment.user == current_user %>
-    </span>
+  <div class="forails-comment-second-row">
+    <div class="forails-comment-info">
+      <span>Posted <%= l comment.created_at, :format => :short %></span>
+    </div>
+    <div class="forails-comment-tools">
+      <span>
+        <%= link_to 'Quote', new_topic_comment_path(@topic, comment_id: comment) %> 
+        <%= (link_to 'Edit', edit_topic_comment_path(@topic, comment)) if can? :update, comment %>  
+        <%= (link_to 'Delete', topic_comment_path(@topic, comment), method: :delete, data: { confirm: 'Are you sure?' }) if can? :destroy, comment %>
+      </span>
+    </div>
   </div>
 </div>

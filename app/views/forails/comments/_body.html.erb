@@ -1,0 +1,8 @@
+<p>
+  <%= comment.content %>
+</p>
+<% if comment.created_at != comment.updated_at %>
+<div class="forails-comment-body-edit">
+  Last edited on <%= l comment.updated_at, :format => :long %>
+</div>
+<% end %>

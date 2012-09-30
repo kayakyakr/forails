@@ -7,5 +7,5 @@
   <%= render 'forum', forum: forum%>
 <% end %>
 
-
+<%= link_to "Admin", admin_index_path if can? :manage, :all %> |
 <%= link_to 'New Forum', new_admin_forum_path if can? :create, Forails::Forum %>

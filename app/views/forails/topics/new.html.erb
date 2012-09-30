@@ -1,5 +1,11 @@
-<h1>New topic</h1>
+<title>New Topic in: <%= @topic.forum.name %></title>
+<%= stylesheet_link_tag    "forails/application", "forails/comments", :media => "all" %>
+<%= javascript_include_tag "forails/application", "forails/comments" %>
+
+<%= render 'forails/forums/location' %>
+  
+<h3>Create Topic in: <%= @topic.forum.name %></h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', forum_path(params[:forum_id]) %>
+<%= render 'forails/forums/location' %>

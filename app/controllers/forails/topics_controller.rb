@@ -19,7 +19,7 @@ module Forails
       end
       
       @topic = Topic.new(forum_id: params[:forum_id])
-      @topic.comments.build(user: current_user)
+      @comment = @topic.comments.build(user: current_user)
       
       authorize! :create, @topic
       respond_with @topic
@@ -27,6 +27,8 @@ module Forails
   
     def edit
       @topic = Topic.find(params[:id])
+      @comment = @topic.comments.first
+      authorize! :update, @comment
       authorize! :update, @topic
       respond_with @topic
     end
@@ -41,18 +43,25 @@ module Forails
       
       @topic = Topic.new(params[:topic])
       @topic.user = current_user
-      @topic.comments.first.user = current_user
+      
+      @comment = @topic.comments.build(params[:comment])
+      @comment.user = current_user
   
       authorize! :create, @topic
+      authorize! :create, @comment
+      
       @topic.save
       respond_with @topic
     end
   
     def update
       @topic = Topic.find(params[:id])
-  
+      @comment = @topic.comments.first
+      
       authorize! :update, @topic
+      authorize! :update, @comment
       @topic.update_attributes(params[:topic])
+      @comment.update_attributes(params[:comment])
       respond_with @topic
     end
   

@@ -17,8 +17,9 @@
 }
 
 .forails-forum .forails-description{
-  font-size: 11px;
-  padding: 0px 20px;
+  font-family: sans-serif;
+  font-size: 12px;
+  padding: 0px 0px;
 }
 
 .forails-forum .forails-forum-children{

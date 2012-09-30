@@ -5,11 +5,12 @@ module Forails
       
       if defined? @forum
         forum = @forum
-      end
-      
-      if defined? @topic
+      elsif defined? @topic
         parts << "#{link_to @topic.name, @topic}" if @topic.persisted?
         forum = @topic.forum
+      elsif defined? @comment
+        parts << "#{link_to @comment.topic.name, @comment.topic}"
+        forum = @comment.topic.forum
       end
       
       ([forum] | forum.ancestors).each{|f| parts.unshift "#{link_to f.name, f}"} unless forum.nil?

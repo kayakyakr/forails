@@ -8,6 +8,7 @@ Forails::Engine.routes.draw do
     resources :topics, :only => [:new]
   end
   
+  resources :admin, :only => [:index]
   namespace :admin do
     resources :forums, :except => [:index, :show]
     resources :groups
